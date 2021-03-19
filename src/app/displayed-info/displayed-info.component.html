@@ -1,0 +1,78 @@
+<div id="containerDisplayed" class="container m-4">
+
+    <!-- title -->
+    <div class=" infoBlock mb-3 mt-3 col-11">
+      <label for="artworkTitle" class="form-label p-0 m-0 mb-1" >{{artwork?.type}}</label>
+      <div  class="row">
+        <div class="inputClass col-10" >
+          <input id="currentFilmTitle" type="text" class="form-control col-10 p-0 m-0" name="title" (keyup)="addNewTitle( $event)" ngModel value={{artwork?.title}}
+          ng-keypress="characterCode ==13">
+          <hr class="p-0 m-0">
+          <input id="artistArtwork" type="text" class="artistArtwork form-control col-10 p-0 m-0" name="artistName" ngModel value={{names}}
+          disabled >
+        </div>
+        <button type="submit" class="ml-1 " [hidden]="!isAllow" style="background-color: white; border:none;"><fa-icon [icon]="faIcon" ></fa-icon></button>
+      </div>
+      <!-- former title -->
+      <div [hidden]="!isTitleFilmModified" class="mb-2  col-11">
+        <label for="formerTitle" class="label">Ancien titre</label>
+        <input type="text" id="formerTitle" class="form-control" name="formerTitle" disabled value={{artwork?.title}}>
+      </div>
+    </div>
+
+  <!-- gallery displaying -->
+    <div class="infoBlock mt-4">
+      <label for="artworkGalleryTeasers" class="form-label p-0 ml-3 mb-1" >Gallerie de Teasers</label>
+      <div  class="ml-3" *ngFor="let gallerie of artwork?.teaser_galleries">
+        <div class="row">
+          <div  type="text" class=" artworkGalleryTeasers col-7" style="border:none">
+            {{gallerie.description | titlecase}}
+          </div>
+          <!-- display more -->
+          <button id ="tests{{artwork.id}}" class="ml-1" style="background-color: white; border:none;"
+                  *ngIf="!isContentToggled" (click)="toggleContent($event)">
+            <fa-icon [icon]="faPlus" ></fa-icon>
+          </button>
+        </div>
+        <!-- more content displayed + display less -->
+        <div class="row ">
+          <div id ="test{{artwork.id}}" *ngIf="isContentToggled" (click)="toggleContent($event)" i18n value="teasers" class="col-10">
+            <div appStopPropagation class="m-2 row"*ngFor="let teaser of gallerie.media">
+              <a  style="color : black;" href={{teaser.medium_url}} class="col-7" target="_blank">{{teaser.label|titlecase}}</a>
+              <div [hidden]="!isAllow" class="row col-5">
+                <button type="submit" class="col-2"  style="background-color: white; border:none;">
+                  <fa-icon [icon]="faIcon" ></fa-icon>
+                </button>
+                <button  class="col-1" style="background-color: white; border:none;">
+                  <fa-icon [icon]="faDelete" id={{teaser.id}} (click)="delete('medium',teaser.id)" ></fa-icon>
+                </button>
+
+              </div>
+            </div>
+            <div class="d-fle justify-content-end row">
+              <fa-icon [icon]="faMinus" class="d-flex justify-content-end "></fa-icon>
+              <p style="font-size: 0.5em; text-transform: uppercase;" >Fermer</p>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <div *ngFor="let teaser of teasers" class="mb-3 mt-3 col-11">
+      <form  (ngSubmit)="onSubmit(formContent, $event)" #formContent="ngForm" >
+        <div class="row " >
+
+            <label for="link{{teaser.label}}" class="form-label ">Lien pour la {{teaser.label=="tesearVF"? ' version française': (teaser.label=="tesearVEN"? ' version anglaise' : (teaser.label=="tesearVODVF" ? " VOD en français" : " VOD en anglais"))}}</label>
+            <input type="text" id="link{{teaser.label}}" class="form-control col-10 " name={{teaser.label}} style="border-bottom: 1px solid #b3b4b5;" value={{teaser.url}}>
+            <button type="submit" class="ml-1 " [disabled]="formContent.invalid" [hidden]="!isAllow" style="background-color: white; border:none;"><fa-icon [icon]="faIcon" ></fa-icon></button>
+
+          <div>
+
+          </div>
+        </div>
+      </form>
+    </div>
+
+</div>

@@ -1,0 +1,40 @@
+<div class=" p-3 m-5">
+  <h1 class="mt-0 pt-0 mb-5">
+    <span class="fr">Connexion</span>
+    <!-- <span class="en">Log in</span> -->
+ </h1>
+
+   <div [hidden]="!isAlert" class="alert alert-danger" role="alert">
+    <span >Votre mot de passe est incorrect ou ne correspond pas à cet identifiant</span>
+  </div>
+
+  <form  id="formConnexion" (ngSubmit)="login(formContent)" #formContent="ngForm" >
+      <div >
+
+        <input id="username" type="text" class="form-control" placeholder="Ex : Ninja55" name="username" (change)="testPseudo($event)" ngModel required>
+        <div class="row">
+          <div id="usernameko" class="col-6" [hidden]="isUsernameOk">Ce pseudo n'existe pas</div>
+          <div id="usernameok" class="col-6" [hidden]="!isUsernameOk">Bienvue à bord !</div>
+          <label for="username" class="form-label col-6">Identifiant</label>
+        </div>
+      </div>
+
+      <div >
+
+        <!-- 7 caractères, 1 miuscule, 1 majuscule, 1 caractère spécial -->
+        <input id="password" type="password" class="form-control" placeholder="*******" name="password"
+         ngModel required>
+        <label for="password" class="form-label">Mot de passe</label>
+      </div>
+
+      <div class=" d-flex justify-content-center mt-5">
+        <button type="submit" class="btn btn-primary pull-right" [disabled]="formContent.invalid"> Se connecter</button>
+      </div>
+    </form>
+
+</div>
+<ngx-spinner bdColor="rgba(51, 51, 51, 0.8)" size="default" type="ball-spin-clockwise">
+  <p style="color: white">
+    En chargement
+  </p>
+</ngx-spinner>

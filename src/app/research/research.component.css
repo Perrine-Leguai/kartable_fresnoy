@@ -1,0 +1,89 @@
+/* the wholde html compoennt */
+/* #containerResearch{
+  width:100%;
+  margin-top:50px;
+  z-index: index 2;
+  padding: 40px;
+  box-shadow: 0px 0px 5px black;
+  position: relative;
+  background-color: rgba(255,255,255,0.8em);
+} */
+
+/* DESIGN SEARCH BAR ENV*/
+/* searchBar */
+#MediaInfosChoosen{
+  width: 100%;
+  border:none;
+  border-radius: 0px;
+  border-bottom: 3px solid black;
+  margin: 0px;
+  padding-bottom: 5px;
+  font-size: 18px;
+  color: #4a4a4a;
+
+}
+
+#MediaInfosChoosen:focus{
+  background-color : #fff4e8;
+  outline-width: none;
+  outline: none;
+  background : lightgrey;
+}
+
+/* field subtitle */
+label{
+  text-align: left;
+  font-weight: normal;
+  text-transform: uppercase;
+  font-size: 0.8em;
+  color: grey;
+  display: inline-block;
+  width: 100%;
+}
+
+#rightLabel{
+  text-align: right;
+}
+
+/* list content */
+.filmPicture, .perfPicture, .installPicture{
+  width : 60px;
+  height: 40px;
+}
+
+#filmInfos, #perfInfos, #installInfos{
+  font-weight: normal;
+  text-transform:initial;
+  color: grey;
+  display: inline-block;
+  width: 100%;
+}
+
+
+#infoTitleFilm, #infoTitleperf, #infoTitleinstall {
+  color: grey;
+}
+
+
+#infoTitleFilm:hover, #infoTitleperf:hover, #infoTitleinstall:hover, a:hover{
+  color: black;
+  text-decoration: none;
+}
+
+ul{
+  border-radius: 0;
+  border-left : 3px solid grey;
+}
+
+li{
+  border: none;
+}
+
+#alertSpan{
+  color:red;
+
+}
+
+input, div, form:focus{
+  outline:none !important;
+}

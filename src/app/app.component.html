@@ -1,0 +1,50 @@
+<div class="row ">
+  <!-- logo Fresnoy -->
+  <div class="visible-md-lg col-md-1 col-lg-1 sidebar p-2">
+    <a href="http://www.lefresnoy.net" target="_blank">
+      <img src="assets/img/fresnoy-bandeau.png">
+    </a>
+  </div>
+  <!-- contnent -->
+  <div id="infoScreen" class="col-md-5 col-lg-5 col-sm-10 " >
+    <div >
+      <div id="connexionMenu" class="row d-flex justify-content-end " *ngIf="!isConnectedComponent">
+        <div class="d-flex justify-content-end m-0 p-0" >
+          <a class="nav-link " [routerLinkActiveOptions]="{exact : true}" routerLinkActive="active" [routerLink]="['/login']" [hidden]="isConnected">Se connecter</a>
+          <a class="nav-link " routerLinkActive="active"[routerLink]="['/home']" (click)="logout()" [hidden]="!isConnected">Se déconnecter</a>
+        </div>
+      </div>
+      <app-research class="col-xs-12 col-md-offset-0 col-md-5 col-lg-4" ></app-research>
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+  <!-- desgin picture -->
+  <div class="col-md-12 col-lg-6 col-sm-12 right-screen">
+    <div class="">
+      <div class="bg" >
+
+        <div class="step-infos visible-md visible-lg">
+              <div id="pageNumber_step-infos" class="current ng-binding">Recherches</div>
+              <!-- ngIf: candidature_config.screen[step.current].display_total -->
+              <!-- <div class="total ng-binding ng-scope" ng-if="candidature_config.screen[step.current].display_total">/ 25</div> -->
+              <!-- end ngIf: candidature_config.screen[step.current].display_total -->
+              <!-- <div class="title">
+                <span class="fr">Procédure d'inscription</span>
+                <span class="en">Application Procedure</span>
+
+              </div> -->
+        </div>
+      </div>
+      <div class="copyright">
+        <span ng-bind="candidature_config.screen[step.current].image.copyright" class="ng-binding"> ICI LE COPY RIGHT © photo : Lucie Ménard</span>
+
+    </div>
+
+  </div>
+</div>
+
+
+
+
+
+</div>

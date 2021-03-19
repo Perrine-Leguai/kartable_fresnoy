@@ -1,0 +1,44 @@
+
+/* FORM DESIGN */
+input{
+  width: 100%;
+  border:none;
+  border-radius: 0px;
+  margin: 0px;
+  padding: 0px;
+  font-size: 19;
+  color: #4a4a4a;
+  outline: none;
+  outline-width:none;
+}
+
+input:focus {
+  background-color : #fff4e8;
+  outline-width: 0;
+  outline: none
+}
+
+.infoBlock {
+  border-left: 2px solid #a8a5a5
+}
+
+label, .galleryLink {
+  text-align: left;
+  font-weight: normal;
+  text-transform: uppercase;
+  font-size: 0.8em;
+  color: grey;
+  display: inline-block;
+  width: 100%;
+}
+
+.artistArtwork{
+  text-align: right;
+  font-weight: normal;
+  font-size: 15;
+  font-size: 0.8em;
+  color: grey;
+  width: 100%;
+  float: right;
+  background: white;
+}

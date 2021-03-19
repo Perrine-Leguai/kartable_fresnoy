@@ -1,0 +1,112 @@
+.container{
+  background-color :white;
+}
+
+#blankClass{
+  height: 30px;
+}
+
+a{
+  text-decoration : none;
+  color : gray;
+  font-size: 0.8em;
+}
+
+#connexionMenu{
+  size: 0.8em;
+}
+
+/* CONTAINER DESIGN */
+#infoScreen{
+  width:100%;
+  margin-top:50px;
+
+  padding: 40px;
+  box-shadow: 0px 0px 5px black;
+  position: relative;
+  background-color: rgba(255,255,255,0.8em);
+}
+
+/* PICTURE DESIGN */
+/* img */
+.bg{
+  width:100%;
+  height : 100%;
+  min-height: 100vh;
+  background-size: cover;
+  opacity: 0.5;
+  position: absolute;
+  /* Center and scale the image nicely */
+  background-position: right;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-image: url("https://app.lefresnoy.net/candidatures/artworks/2021/4_panorama_22_-_les_sentinelles_©lucie_menard_-52.jpg");
+  overflow-x : hidden;
+  background-attachment: fixed;
+}
+@media (min-width: 992px){
+  /* text */
+  .step-infos{
+    color: black;
+    top: 23%;
+    position: absolute ;
+    margin-left : 80px;
+    padding-left: 20px;
+    border-left : 5px solid black;
+    opacity : 1;
+  }
+
+.sidebar img{
+  position: fixed;
+  margin-left: 10px;
+}
+
+  #pageNumber_step-infos{
+    font-size : 64px;
+    font-weight: bold;
+    display: inline-block;
+    line-height: 60 px;
+    color: black;
+    position: fixed;
+  }
+}
+
+@media( max-width : 991px){
+  .step-infos{
+    display: none;
+  }
+
+  .sidebar{
+    display : none;
+  }
+
+  .bg{
+    max-width: 100vh;
+    max-height: 100vh;
+    overflow-x: visible;
+    position: absolute;
+    z-index : 1;
+  }
+
+  #infoScreen{
+    position: absolute;
+    background-color: white;
+    margin-left : 80px;
+    padding-left: 20px;
+    opacity: 1;
+    z-index: 3;
+  }
+
+}
+
+
+/* copyright */
+.copyright{
+  position: fixed;
+  bottom: 10px;
+  right: 50px;
+  background-color: rgba(255,255,255,0.75);
+  padding : 1px 20px;
+  font-size : 12px;
+  z-index: 2;
+}

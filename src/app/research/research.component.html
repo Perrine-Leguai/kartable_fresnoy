@@ -1,0 +1,115 @@
+<div id="containerResearch" class="container m-4  ">
+
+
+
+      <!-- allow to display the full informative title film  while catchind the Object film-->
+      <form id="quickSearch" class="col-11 d-flex flex-column">
+        <div class="row">
+          <fa-icon [icon]="faSearch" class=" col-1 d-flex align-items-center"></fa-icon>
+          <div class="col-11">
+            <input  list="mediaInfos" id="MediaInfosChoosen" name="MediaInfosChoosen"
+                    class="form-control  dropdown-toggle mb-0 pb-0"
+                    data-toogle="dropdown" aria-haspopup="true" aria-expanded="false"
+                    [(ngModel)]="selected" (change)="catchMediaInfo()"/>
+
+            <label for="MediaInfosChoosen" id="rightLabel">
+              <span id="alertSpan" [hidden]="!error"> Aucun résultat trouvé <fa-icon [icon]="faSquare"></fa-icon> </span>
+              <span class="field-state required error touched valid pt-0 mt-0"  ></span>
+              <span class="fr">Recherche</span>
+              <!-- <span class="en">Reasearch</span> -->
+            </label>
+          </div>
+        </div>
+
+        <!-- <div id="artistsList" class="mb-3 mt-3 col-11">
+            <label for="matchingArtist" class="form-label p-0 m-0 mb-1" >Artistes</label>
+            <div id="matchingArtist">
+              <ul id="ArtistInfos" class="col-12 list-group" role="tablist">
+                <li *ngFor="let artist of artistList"  class="list-group-item">
+                  <a [routerLink]="['/artist/'+artist?.id]">
+                    <div class="row artistLink">
+                      <div class="col-2 filmLink p-0 m-0">
+                        <img src="http://media.lefresnoy.net/?url=https://api.lefresnoy.net/{{artist?.photo}}&w=100&h=40&fmt=jpg" class="artistPhoto p-0 m-0">
+                      </div>
+                    </div>
+                  </a>
+                </li>
+              </ul>
+            </div>
+        </div> -->
+
+        <div  class="artworkList mb-3 mt-3 col-11" *ngIf="installList.length >0" (click)="reset()">
+          <label for="installInfos" class="form-label p-0 m-0 mb-1" >Installations</label>
+            <ul id="installInfos" class="col-12 list-group" role="tablist" >
+              <li *ngFor="let install of installList"  class="list-group-item" >
+                <a  [routerLink]="['/'+install?.type+'/'+install?.id]" >
+
+                    <div id="infoTitleinstall" class=" col-12 p-0 m-0">
+                      <div class="p-0 m-0" >
+                        {{install?.title}} - {{install?.production_date | date:"yyyy"}}
+                      </div>
+                      <hr>
+                      <div style="text-align: right" class="p-0 m-0">
+                        {{install?.authors[0].user.nickname != null ? install?.authors[0].user.nickname : install?.authors[0].user.first_name +" "+(install?.authors[0].user.last_name | uppercase)}}
+                      </div>
+                    </div>
+                </a>
+              </li>
+            </ul>
+
+        </div>
+
+        <div  class="artworkList mb-3 mt-3 col-11" *ngIf="filmList.length >0" (click)="reset()">
+          <label for="filmInfos" class="form-label p-0 m-0 mb-1" >Films</label>
+            <ul id="filmInfos" class="col-12 list-group" role="tablist" >
+              <li *ngFor="let film of filmList"  class="list-group-item" >
+                <a  [routerLink]="['/'+film?.type+'/'+film?.id]" >
+
+                    <div id="infoTitleFilm" class=" col-12 p-0 m-0">
+                      <div class="p-0 m-0" >
+                        {{film?.title}} - {{film?.production_date | date:"yyyy"}}
+                      </div>
+                      <hr>
+                      <div style="text-align: right" class="p-0 m-0">
+                        {{film?.authors[0].user.nickname != null ? film?.authors[0].user.nickname : film?.authors[0].user.first_name +" "+(film?.authors[0].user.last_name | uppercase)}}
+                      </div>
+                    </div>
+
+                </a>
+              </li>
+            </ul>
+
+        </div>
+
+        <div  class="artworkList mb-3 mt-3 col-11" *ngIf="perfList.length >0" (click)="reset()">
+          <label for="perfInfos" class="form-label p-0 m-0 mb-1" >Performance</label>
+            <ul id="perfInfos" class="col-12 list-group" role="tablist" >
+              <li *ngFor="let perf of perfList"  class="list-group-item" >
+                <a  [routerLink]="['/'+perf?.type+'/'+perf?.id]" >
+                  <!-- <div class="row perfLink">
+                    <div class="col-2 perfLink p-0 m-0">
+                      <img src="http://media.lefresnoy.net/?url=https://api.lefresnoy.net/{{perf?.picture}}&w=100&h=40&fmt=jpg" class="perfPicture p-0 m-0">
+                    </div> -->
+                    <div id="infoTitleperf" class=" col-12 p-0 m-0">
+                      <div class="p-0 m-0" >
+                        {{perf?.title}} - {{perf?.production_date | date:"yyyy"}}
+                      </div>
+                      <hr>
+                      <div style="text-align: right" class="p-0 m-0">
+                        {{perf?.authors[0].user.nickname != null ? perf?.authors[0].user.nickname : perf?.authors[0].user.first_name +" "+(perf?.authors[0].user.last_name | uppercase)}}
+                      </div>
+                    </div>
+
+                  <!-- </div> -->
+                </a>
+              </li>
+            </ul>
+          </div>
+      </form>
+
+</div>
+
+
+
+
+
